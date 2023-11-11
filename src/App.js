@@ -10,6 +10,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
+        <div>conf</div>
         <AppRoute />
       </PersistGate>
     </Provider>
