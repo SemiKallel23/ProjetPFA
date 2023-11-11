@@ -1,9 +1,11 @@
-import { Provider } from "react-redux"
-import { PersistGate } from "reduxjs-toolkit-persist/integration/react"
-import { persistor, store } from "./Redux/Store"
-import AppRoute from "./Routes/AppRoute"
-import './Style/index.css'
-import './Style/index.scss'
+import { Provider } from "react-redux";
+import { PersistGate } from "reduxjs-toolkit-persist/integration/react";
+import { persistor, store } from "./Redux/Store";
+import AppRoute from "./Routes/AppRoute";
+import "./Style/index.css";
+import "./Style/index.scss";
+
+//comments
 const App = () => {
   return (
     <Provider store={store}>
@@ -11,7 +13,7 @@ const App = () => {
         <AppRoute />
       </PersistGate>
     </Provider>
-  )
-}
+  );
+};
 
-export default App
+export default App;
