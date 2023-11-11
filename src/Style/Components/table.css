@@ -1,0 +1,115 @@
+.containerStyle {
+    width: 100%;
+    background: "red";
+}
+
+.tableStyle {
+    width: 100%;
+}
+
+.theadStyle {
+    width: 100%;
+}
+
+.trStyle {
+    width: 100%;
+}
+
+.tbodyStyle {
+    width: 100%;
+}
+
+.side-bar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.active {
+    color: blue;
+}
+
+.table-container {
+    background: #F7F7F7;
+    box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    border: 2px solid #FFFFFF;
+}
+
+.checkBox-className {
+    accent-color: #7A00E6;
+}
+
+.header-border {
+    border-top: 2px solid #FFFFFF;
+    border-bottom: 2px solid #FFFFFF;
+}
+
+.pagination {
+    display: flex;
+}
+
+.pagination-border {
+    border-top: 2px solid #FFFFFF;
+}
+
+.delete-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    border: 2px solid #FFFFFF;
+    background: linear-gradient(144.87deg, rgba(255, 255, 255, 0.4) 14.45%, rgba(255, 255, 255, 0.1) 85.19%);
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.pagination-btn {
+    background: transparent;
+    border: transparent;
+}
+
+.circular-style {
+    background: #F7F7F7;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    border: 2px solid #FFFFFF;
+    border-radius: 20px;
+    height: 48px;
+    width: 70%;
+    background: #F7F7F7;
+    box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.08);
+    padding-left: 18px;
+}
+
+.icon-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 18px;
+    height: 48,
+}
+
+.input-table {
+    border: 2px solid #FFFFFF;
+    border-left: none;
+    border-right: none;
+    border-left-color: #F7F7F7;
+    background: #F7F7F7;
+    height: 48px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    outline: none;
+    flex: 1;
+    padding: 4px;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: 'Verdana';
+    line-height: 24px;
+}
+.input-table ::placeholder { 
+    color: #B3B3B3;
+  }

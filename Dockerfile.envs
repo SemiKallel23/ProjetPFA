@@ -1,0 +1,36 @@
+FROM node:18-alpine as builder
+
+WORKDIR /app
+
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+
+COPY package.json ./
+COPY package-lock.json ./
+
+RUN npm i -g @nestjs/cli
+
+RUN npm install
+
+COPY . ./
+
+ARG BK_URL
+
+ENV REACT_APP_BK_URL=$BK_URL
+
+RUN npm run build
+
+
+FROM nginx:1.23.1-alpine
+
+WORKDIR /usr/share/nginx/html
+
+ARG ENVIRONMENT
+
+ENV ENVIRONMENT=$ENVIRONMENT
+
+COPY --from=builder /app/build /usr/share/nginx/html
+
+COPY docker/nginx/${ENVIRONMENT}/nginx.conf /etc/nginx/conf.d/default.conf
+
+CMD ["nginx", "-g", "daemon off;"]

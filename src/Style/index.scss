@@ -1,0 +1,85 @@
+@for $i from 0 through 300 {
+    .mt-#{$i} {
+        margin-top: $i *1px;
+    }
+
+    .mb-#{$i} {
+        margin-bottom: $i *1px;
+    }
+
+    .ms-#{$i} {
+        margin-left: $i *1px;
+    }
+
+    .me-#{$i} {
+        margin-right: $i *1px;
+    }
+
+    .mx-#{$i} {
+        margin-left: $i *1px;
+        margin-right: $i *1px;
+    }
+
+    .my-#{$i} {
+        margin-top: $i *1px;
+        margin-bottom: $i *1px;
+    }
+
+    .m-#{$i} {
+        margin-top: $i *1px;
+        margin-bottom: $i *1px;
+        margin-left: $i *1px;
+        margin-right: $i *1px;
+    }
+
+    .pt-#{$i} {
+        padding-top: $i *1px;
+    }
+
+    .pb-#{$i} {
+        padding-bottom: $i *1px;
+    }
+
+    .ps-#{$i} {
+        padding-left: $i *1px;
+    }
+
+    .pe-#{$i} {
+        padding-right: $i *1px;
+    }
+
+    .px-#{$i} {
+        padding-left: $i *1px;
+        padding-right: $i *1px;
+    }
+
+    .py-#{$i} {
+        padding-top: $i *1px;
+        padding-bottom: $i *1px;
+    }
+
+    .p-#{$i} {
+        padding-top: $i *1px;
+        padding-bottom: $i *1px;
+        padding-left: $i *1px;
+        padding-right: $i *1px;
+    }
+
+    .wp-#{$i} {
+        width: $i *1px;
+    }
+
+    .hp-#{$i} {
+        height: $i *1px;
+    }
+
+    .w-#{$i} {
+        width: $i *1%;
+    }
+
+    .h-#{$i} {
+        height:$i *1%;
+    }
+
+
+}

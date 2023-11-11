@@ -1,0 +1,64 @@
+.side-bar-text-1 {
+    font-family: 'Verdana';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    align-items: center;
+    color: rgba(244, 242, 246, 1);
+}
+
+.header-text-1 {
+    font-family: 'Verdana';
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 48px;
+    align-items: center;
+    color: #000000;
+}
+
+.text-table-Header {
+    font-family: 'Verdana';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000000;
+    text-align: start;
+}
+
+.text-body-table {
+    font-family: 'Verdana';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.text-pagination {
+    font-family: 'Verdana';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.text-pagination-colored.text-pagination {
+    color: #7A00E6;
+}
+
+.text-delete {
+    font-family: 'Verdana';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #F4F2F6;
+    text-align: center;
+}
+
+.text-cancel {
+    font-family: 'Verdana';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #7A00E6;
+    text-align: center;
+}

@@ -1,0 +1,45 @@
+name: 'Notify Jira of new release creation'
+on: 
+  push:
+    branches:
+      - prod
+
+jobs:
+  check-secrets:
+    runs-on: [ ubuntu-latest ]
+    outputs:
+      IS_PROJECT_KEY_DEFINED: ${{ steps.check.outputs.IS_PROJECT_KEY_DEFINED }}
+    steps:
+      - id: check1
+        env:
+          PROJECT_KEY: ${{ secrets.PROJECT_KEY }}
+        if: "${{ env.PROJECT_KEY != '' }}"
+        run: echo "IS_PROJECT_KEY_DEFINED=true" >> $GITHUB_OUTPUT
+  release-notify-jira:
+    needs: [ check-secrets ]
+    if: needs.check-secrets.outputs.IS_PROJECT_KEY_DEFINED == 'true'
+    runs-on: [ ubuntu-latest ]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: DG-Ironman/create-jira-release@v1
+        with:
+          jira-project-key: ${{ secrets.PROJECT_KEY }}
+          jira-automation-webhook: ${{ secrets.JIRA_WEBHOOK }}
+          build-version: ${{ github.ref }}
+          actor: ${{ github.actor }}
+          target: ${{ github.base_ref }}
+  notify_sentry:
+    name: Notify sentry
+    runs-on: [ ubuntu-latest ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create Sentry release
+        uses: getsentry/action-release@v1
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+        with:
+          environment: PRODUCTION
+          ignore_missing: true
+          ignore_empty: true

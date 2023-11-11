@@ -1,0 +1,27 @@
+name: 'Assert Branch Naming Convention'
+on: pull_request
+
+jobs:
+  check-secrets:
+    runs-on: [ self-hosted ]
+    outputs:
+      IS_PROJECT_KEY_DEFINED: ${{ steps.check.outputs.defined }}
+    steps:
+      - id: check
+        env:
+          PROJECT_KEY: ${{ secrets.PROJECT_KEY }}
+        if: "${{ env.PROJECT_KEY != '' }}"
+        run: echo "::set-output name=defined::true"
+    
+  branch-naming-rules:
+    runs-on: [ self-hosted ]
+    needs: [ check-secrets ]
+    if: needs.check-secrets.outputs.IS_PROJECT_KEY_DEFINED == 'true'
+    steps:
+      - uses: deepakputhraya/action-branch-name@master
+        with:
+          regex: '${{ secrets.PROJECT_KEY }}\-([0-9]){1,5}\_(\w|-){1,40}' # Regex the branch should match. ex: HP-1_added_index
+          allowed_prefixes: 'Bug/,Evolution/,Feature/,Fix/,Merge/,Revert/' # All branches should start with the given prefix
+          ignore: main,prod,dev,preprod,recette # Ignore exactly matching branch names from convention
+          min_length: 5 # Min length of the branch name
+          max_length: 40 # Max length of the branch name

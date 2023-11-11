@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+
+  # backoffice
+  app:
+    image: pomelo.azurecr.io/dollycar-backoffice-${ENVIRONMENT}:latest
+    container_name: dollycar-backoffice-${ENVIRONMENT}
+    environment:
+      - FRONT_URI=${FRONT_URI}
+    build:
+      context: .
+      dockerfile: Dockerfile.envs
+      args:
+        ENVIRONMENT: ${ENVIRONMENT}
+    restart: unless-stopped
+    networks:
+      - nginx_network
+    env_file:
+      - .env
+
+networks:
+  nginx_network:
+    external: true
+    name: nginx_network_backoffice_${ENVIRONMENT}
