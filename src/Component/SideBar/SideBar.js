@@ -15,8 +15,8 @@ function SideBar() {
           <Button
             type={"sideBarBtn"}
             value={
-              <AtomText type={"type-1"} isIcon={true} iconName={"Users"}>
-                {"lang.users"}
+              <AtomText type={"type-1"} isIcon={true} iconName={"Home"}>
+                {"Map"}
               </AtomText>
             }
           />
@@ -27,7 +27,7 @@ function SideBar() {
             onClick={() => {
               dispatch(resetToken());
             }}
-            value={<AtomText type={"type-7"}>{"lang.logout"}</AtomText>}
+            value={<AtomText type={"type-7"}>{"Log out"}</AtomText>}
           />
         </div>
       </div>

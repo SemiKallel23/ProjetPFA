@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { LoginTemplate } from "../../Template";
 import { createState } from "../../Common";
 import { formValidation } from "../../Common/Functions/Validation";
-import { loginApi } from "../../Api/Auth";
+// import { loginApi } from "../../Api/Auth";
 import { setToken } from "../../Redux/Reducers/AuthReducer/AuthReducer";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { allowedRoles } from "../../Common/Data/data";
+// import { allowedRoles } from "../../Common/Data/data";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -16,6 +16,7 @@ export default function Login() {
     password: { ...createState({ value: "" }) },
   };
   const [form, setForm] = useState(initialForm);
+  console.log("form", form);
   const [isLoading, setIsLoading] = useState(false);
   const [notAuthorized, setNotAuthorized] = useState("");
 
@@ -24,13 +25,13 @@ export default function Login() {
       {
         value: "email",
         validation: [
-          { error: "lang.errorEmail", type: "isNotEmpty" },
-          { error: "lang.msgInvalid", type: "isMail" },
+          { error: "Enter your mail", type: "isNotEmpty" },
+          { error: "Please enter a valid mail", type: "isMail" },
         ],
       },
       {
         value: "password",
-        validation: [{ error: " lang.msgErreurPassword1", type: "isNotEmpty" }],
+        validation: [{ error: "Enter your password", type: "isNotEmpty" }],
       },
     ];
     const { res, verif } = formValidation({
@@ -42,31 +43,16 @@ export default function Login() {
       return;
     }
     setIsLoading(true);
-    const body = {
-      email: form.email.value,
-      password: form.password.value,
-    };
-    const response = await loginApi(body);
-    if (response && response.statusCode === 200) {
-      setIsLoading(false);
-      if (!response.role && allowedRoles.includes(response.role)) {
-        setNotAuthorized("lang.onlyAdmins");
-        setForm(initialForm);
-        return;
-      }
-      dispatch(
-        setToken({
-          accessToken: response.accessToken,
-          refreshToken: response.refreshToken,
-          user: response.user,
-          role: response.role,
-        })
-      );
-      navigate("/");
-    } else {
-      setNotAuthorized("lang.errorLogin");
-      setIsLoading(false);
-    }
+    dispatch(
+      setToken({
+        accessToken: "hjdfhsdfslkfksjdfsjdkfshdfjhksdjfj",
+        refreshToken: "ygyjdsdjlksjkdflksdnkfn;sdn;",
+        user: { name: "semi", email: "semi@gmail.com" },
+        role: "user",
+      })
+    );
+//api
+    navigate("/test");
   };
 
   const onChange = (e, key) => {
@@ -76,6 +62,7 @@ export default function Login() {
       [key]: { ...form[key], value: e.target.value.trim(), isInvalid: false },
     });
   };
+
   return (
     <LoginTemplate
       submit={onLogin}

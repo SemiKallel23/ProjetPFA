@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 export default function PublicOrganism(props) {
   const renderButtonText = () => {
     let buttonText = "";
-    if (props.isLogin) buttonText = " lang.connexion";
-    if (props.isForgetPassword) buttonText = "lang.sendPassword";
-    if (props.isResetPassword) buttonText = "lang.resetPassword";
+    if (props.isLogin) buttonText = " Connexion";
+    if (props.isForgetPassword) buttonText = "Send Password";
+    if (props.isResetPassword) buttonText = "Reset Password";
 
     return buttonText;
   };
@@ -20,7 +20,7 @@ export default function PublicOrganism(props) {
           </div>
           {(props.isLogin || props.isForgetPassword) && (
             <Input
-              label={"lang.email"}
+              label={"Email"}
               type={"primary"}
               onChange={(e) => {
                 props.onChange(e, "email");
@@ -32,7 +32,7 @@ export default function PublicOrganism(props) {
           )}
           {(props.isLogin || props.isResetPassword) && (
             <Input
-              label={props.isLogin ? "lang.password" : "lang.newPassword"}
+              label={props.isLogin ? "Password" : "New Password"}
               type={"primary"}
               isPassword={true}
               onChange={(e) => {
@@ -45,7 +45,7 @@ export default function PublicOrganism(props) {
           )}
           {props.isResetPassword && (
             <Input
-              label={"lang.confirmPassword"}
+              label={"Confirm Password"}
               type={"primary"}
               isPassword={true}
               onChange={(e) => {
@@ -73,7 +73,7 @@ export default function PublicOrganism(props) {
           {props.isLogin && (
             <div className="my-8 text-center">
               <Link to={"/forget"} className="text-none font-16p">
-                {"lang.forgetPassword"}
+                {"Forget Password"}
               </Link>
             </div>
           )}

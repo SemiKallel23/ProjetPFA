@@ -22,12 +22,7 @@ function PageTest(props) {
   };
   const tableData = [
     {
-      id: 1,
-      nom: "yaich",
-      prenom: "ayoub",
-      email: "ayoub@deadpool.com",
-      telephone: "24043800",
-      active: "active",
+      
     },
   ];
   const handleSelectionChange = (selectedRows) => {};
