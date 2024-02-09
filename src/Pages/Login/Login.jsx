@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { LoginTemplate } from "../../Template";
 import { createState } from "../../Common";
 import { formValidation } from "../../Common/Functions/Validation";
-// import { loginApi } from "../../Api/Auth";
+import { loginApi } from "../../Api/Auth";
 import { setToken } from "../../Redux/Reducers/AuthReducer/AuthReducer";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -43,16 +43,26 @@ export default function Login() {
       return;
     }
     setIsLoading(true);
-    dispatch(
-      setToken({
-        accessToken: "hjdfhsdfslkfksjdfsjdkfshdfjhksdjfj",
-        refreshToken: "ygyjdsdjlksjkdflksdnkfn;sdn;",
-        user: { name: "semi", email: "semi@gmail.com" },
-        role: "user",
-      })
-    );
-//api
-    navigate("/test");
+    const login = await loginApi(
+      {
+        email: form.email.value,
+        password: form.password.value
+      }
+    )
+    if (login.status === 200) {
+      dispatch(
+        setToken({
+          accessToken: login.token,
+          user: login.user,
+        })
+      );
+      //api
+      navigate("/test");
+    }
+    else{
+      setNotAuthorized("not found")
+    }
+    setIsLoading(false);
   };
 
   const onChange = (e, key) => {

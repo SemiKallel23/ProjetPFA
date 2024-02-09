@@ -1,0 +1,19 @@
+import { apiGet, apiPost, apiPut, apiDelete } from "./StandardApi";
+
+const trajetApi = async (body) => {
+    return apiPost("trajet/create", body)
+} 
+  
+const updateTrajetApi = async (body) => {
+    return apiPut("trajet/update/:id", body)
+} 
+
+const deleteTrajetApi = async (body) => {
+    return apiDelete("trajet/delete/:id", body)
+} 
+
+export {
+    trajetApi,
+    updateTrajetApi,
+    deleteTrajetApi
+}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { LoginTemplate } from "../../Template";
 import { createState } from "../../Common";
 import { formValidation } from "../../Common/Functions/Validation";
-// import { loginApi } from "../../Api/Auth";
+import { registerApi } from "../../Api/Auth";
 import { setToken } from "../../Redux/Reducers/AuthReducer/AuthReducer";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -21,6 +21,7 @@ export default function Inscri() {
     password2: { ...createState({ value: "" }) },
     dateOfBirth: { ...createState({ value: "" }) },
     phoneNumber: { ...createState({ value: "" }) },
+    role: { ...createState({ value: "" }) },
     startAddress: { ...createState({ value: "" }) },
     endAddress: { ...createState({ value: "" }) },
   };
@@ -71,6 +72,10 @@ export default function Inscri() {
           { error: "Enter a valid phone number", type: "isValidPhoneNumber" },
         ],
       },
+      {
+        value: "role",
+        validation: [{ error: "Enter your role", type: "isNotEmpty" }],
+      },
     ];
     const { res, verif } = formValidation({
       list: validationStatePassword,
@@ -106,6 +111,21 @@ export default function Inscri() {
       return;
     }
     setIsLoading(true);
+    const register = await registerApi(
+      {
+        firstname: form.firstname.value,
+        lastname: form.lastname.value,
+        email: form.email.value,
+        password1: form.password1.value,
+        password2: form.password2.value,
+        dateOfBirth: form.dateOfBirth.value,
+        phoneNumber: form.phoneNumber.value,
+        role: form.role.value,
+        startAddress: form.startAddress.value,
+        endAddress: form.endAddress.value,
+      }
+    )
+
     //api
     navigate("/login")
   };

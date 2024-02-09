@@ -17,8 +17,8 @@ export default function ForgetPassword() {
       {
         value: "email",
         validation: [
-          { error: " lang.errorEmail", type: "isNotEmpty" },
-          { error: " lang.msgInvalid", type: "isMail" },
+          { error: " Enter your mail", type: "isNotEmpty" },
+          { error: " Please enter a valid mail", type: "isMail" },
         ],
       },
     ];
@@ -31,14 +31,14 @@ export default function ForgetPassword() {
       return;
     }
     setIsLoading(true);
-    const body = { mail: form.email.value };
+    const body = { email: form.email.value };
     const response = await sendMailResetApi(body);
     if (response && response.statusCode === 200) {
       setIsLoading(false);
       navigate("/login");
     } else {
       setIsLoading(false);
-      setNotAuthorized("lang.forgetPassError");
+      setNotAuthorized("Error");
     }
   };
 

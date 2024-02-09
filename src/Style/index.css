@@ -75,6 +75,15 @@ body {
     line-height: 24px
 }
 
+select {
+    width: 100%;
+}
+
+ .classLabel {
+    margin-right: 350px;
+    margin-bottom: -30px;
+ }
+
 .input-primary::placeholder {
     font-weight: 400;
     font-size: 16px;
@@ -83,9 +92,9 @@ body {
 }
 
 
-
 .default-button {
     cursor: pointer;
+    margin-bottom: 15px;
 }
 
 .button-primary {
@@ -173,6 +182,10 @@ body {
     position: absolute;
 }
 
+.position-fixed {
+    position: fixed;
+}
+
 .position-relative {
     position: relative;
 }
@@ -229,4 +242,268 @@ body {
     to {
         transform: rotate(360deg);
     }
+}
+
+:root {
+    --primary-color: #3498db;
+    --background-color: #f4f4f4;
+    --border-color: #ddd;
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .covoiturage-offer {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px var(--box-shadow-color);
+    margin-bottom: 16px;
+  }
+  
+  .covoiturage-offer h2 {
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .reserve-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .covoiturage-offer p {
+    margin: 8px 0;
+  }
+  
+  
+  
+.class1 {
+    display: "flex" ;
+      flex-direction: "column" ;
+      justify-content: "center";
+      align-items: "center" ;
+}
+
+.route {
+    display: flex;
+    flex-direction: column;
+}
+
+***************************
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .profile-card {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+
+
+  
+
+  /* UserProfile.css */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f8f8;
+  }
+  
+  .avatar-container {
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  
+  .avatar {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .user-details {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .email {
+    color: #555;
+    font-style: italic;
+  }
+  
+  .bio {
+    color: #333;
+  }
+  
+  .edit-button {
+    background-color: #4f9ecc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+
+  #datePicker-1 label {
+    font-size: 16px; 
+    color: #333; 
+    font-weight: bold; 
+    margin-bottom: 8px;
+    display: block; 
+    color: #4f9ecc;
+  }
+  
+  /* About.css */
+  .container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-title {
+    color: #333;
+}
+
+.welcome-text,
+.section-title,
+.info-text,
+.role-title {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 16px;
+}
+
+
+
+/* Ajoutez des styles spécifiques si nécessaire */
+.container {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-title {
+}
+
+
+.role-title {
+    color: #4f9ecc;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-right: 16px; /* Ajustez la marge entre l'image et le texte selon vos préférences */
+}
+
+.wp-100 {
+    width: 100%;
+}
+
+.wp-70 {
+    width: 70%;
+}
+
+.hp-1 {
+    height: 100%;
+}
+
+.mb-16 {
+    margin-bottom: 16px;
+}
+
+.div1 {
+    display: flex;
+    align-items: center;
+}
+
+.div11 {
+    flex: 0 0 auto; 
+    margin-right: 16px; 
+}
+
+.div12 {
+    flex: 1; 
+}
+
+.class11 {
+    display: flex;
+  }
+    
+  .class111 {
+    flex : 2;
+  }
+
+   .class112 {
+    flex: 1;
+  }
+
+   
+  .reject-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+
+  .container-about {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px
 }

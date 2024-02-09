@@ -91,6 +91,26 @@ export default function InscriTemplate(props) {
         error={props.form?.phoneNumber?.errorMessage}
         isInvalid={props.form?.phoneNumber?.isInvalid}
       />
+
+<label htmlFor="role" className="default-label , classLabel">
+  Role
+</label>
+<select
+  id="role"
+  onChange={(e) => {
+    props.onChange(e, "role");
+  }}
+  value={props.form?.role?.value}
+  className={`input-primary ${props.form?.role?.isInvalid ? "invalid" : ""}`}
+>
+  <option value="conducteur">Driver</option>
+  <option value="passager">Passenger</option>
+</select>
+{props.form?.role?.isInvalid && (
+  <div className="error-message">{props.form?.role?.errorMessage}</div>
+)}
+
+
       <div
         style={{
           width: "100%",
