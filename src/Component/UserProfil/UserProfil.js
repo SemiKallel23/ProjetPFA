@@ -1,24 +1,18 @@
 // UserProfile.js
-import React, { useState ,useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { updateRoleApi } from "../../Api/Auth";
+import image from "../../Style/images/avatar.png";
+import { header } from "express-validator";
+import { useDispatch } from "react-redux";
+import { setRole } from "../../Redux/Reducers/AuthReducer/AuthReducer";
+
 //import axios from 'axios';
 
 
 const UserProfile = ({ user }) => {
- /*useEffect(() => {
-    axios.get('http://localhost:4000/auth/profile')
-      .then(response => {
-        // Traitement des données reçues
-        console.log(response.data);
-      })
-      .catch(error => {
-        // Gestion des erreurs
-        console.error(error);
-      });
-  }, []); // Le tableau vide en second argument signifie que cela s'exécutera une seule fois après le montage initial du composant
-*/
   const [isEditing, setIsEditing] = useState(false);
   const [editedRole, setEditedRole] = useState(user.role);
-
+  const dispatch = useDispatch()
   const handleEditToggle = () => {
     setIsEditing(!isEditing);
   };
@@ -27,26 +21,27 @@ const UserProfile = ({ user }) => {
     setEditedRole(e.target.value);
   };
 
-  const handleSaveChanges = () => {
-    // Enregistrez les modifications du rôle, par exemple, en envoyant une requête API
-    // Vous pouvez implémenter cette fonction en fonction de votre backend
-    console.log("Role changed:", editedRole);
+  const updateRoleAPi = async () => {
+    const body = {
+      role: editedRole
+    }
+    dispatch(setRole({ role: editedRole }))
+    await updateRoleApi(body)
     setIsEditing(false);
-  };
-
+  }
   return (
     <div className="profile-container">
       <div className="avatar-container">
-        <img src={user.avatarUrl} alt={user.name} className="avatar" />
+        <img src={image} className="avatar" />
       </div>
       <div className="user-details">
-        <h2>{user.name}</h2>
+        <h2>{user.firstname + ' ' + user.lastname}</h2>
         <p className="email">{user.email}</p>
         <p className="info">Date of birth: {user.dateOfBirth}</p>
         <p className="info">Phone number: {user.phoneNumber}</p>
         <p className="info">Start Address: {user.startingAddress}</p>
-        <p className="info">End Adress: {user.destinationAddress}</p>
-        <p className="info">Role : {user.role}</p>
+        <p className="info">End Address: {user.destinationAddress}</p>
+        <p className="info">Role : {editedRole}</p>
 
         {isEditing && (
           <div className="role-edit">
@@ -55,18 +50,18 @@ const UserProfile = ({ user }) => {
               value={editedRole}
               onChange={handleRoleChange}
             >
-              <option value="passager">Passager</option>
-              <option value="conducteur">Conducteur</option>
+              <option value="passenger">Passenger</option>
+              <option value="driver">Driver</option>
             </select>
-            <button className="save-button" onClick={handleSaveChanges}>
-              Enregistrer les modifications
+            <button className="save-button" onClick={updateRoleAPi}>
+              Save changes
             </button>
           </div>
         )}
 
         {!isEditing && (
           <button className="edit-button" onClick={handleEditToggle}>
-            Modifier le rôle
+            Change role
           </button>
         )}
       </div>

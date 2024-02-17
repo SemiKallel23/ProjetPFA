@@ -100,7 +100,7 @@ export default function Inscri() {
         value: "endAddress",
         validation: [{ error: "Enter your password", type: "isNotEmpty" }],
       },
-      
+
     ];
     const { res, verif } = formValidation({
       list: validationStatePassword,
@@ -116,8 +116,7 @@ export default function Inscri() {
         firstname: form.firstname.value,
         lastname: form.lastname.value,
         email: form.email.value,
-        password1: form.password1.value,
-        password2: form.password2.value,
+        password: form.password1.value,
         dateOfBirth: form.dateOfBirth.value,
         phoneNumber: form.phoneNumber.value,
         role: form.role.value,
@@ -125,9 +124,9 @@ export default function Inscri() {
         endAddress: form.endAddress.value,
       }
     )
-
-    //api
-    navigate("/login")
+    if (register.status = 201) {
+      navigate("/login")
+    }
   };
 
   const onChange = (e, key) => {
@@ -136,22 +135,21 @@ export default function Inscri() {
       [key]: { ...form[key], value: e.target.value.trim(), isInvalid: false },
     });
   };
-
   return (<div className="w-100"
     style={{
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center"
-  }} 
+    }}
   >
     {
-    step === 1 ? (
-      
-      <InscriTemplate onChange={onChange} form={form} submit={submit} />
+      step === 1 ? (
+
+        <InscriTemplate onChange={onChange} form={form} submit={submit} />
       ) : (
-        <Address  form={form} submitAddress={submitAddress} onChange={onChange} setStep={setStep}/>
-        )
-      }
+        <Address form={form} submitAddress={submitAddress} onChange={onChange} setStep={setStep} />
+      )
+    }
   </div>)
 }

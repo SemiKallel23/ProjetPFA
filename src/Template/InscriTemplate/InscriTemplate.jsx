@@ -70,6 +70,7 @@ export default function InscriTemplate(props) {
         value={props.form?.password1?.value}
         error={props.form?.password1?.errorMessage}
         isInvalid={props.form?.password1?.isInvalid}
+        isPassword
       />
       <Input
         label={"Verify password"}
@@ -80,6 +81,7 @@ export default function InscriTemplate(props) {
         value={props.form?.password2?.value}
         error={props.form?.password2?.errorMessage}
         isInvalid={props.form?.password2?.isInvalid}
+        isPassword
       />
       <Input
         label={"Phone number"}
@@ -103,8 +105,8 @@ export default function InscriTemplate(props) {
   value={props.form?.role?.value}
   className={`input-primary ${props.form?.role?.isInvalid ? "invalid" : ""}`}
 >
-  <option value="conducteur">Driver</option>
-  <option value="passager">Passenger</option>
+  <option value="driver">Driver</option>
+  <option value="passenger">Passenger</option>
 </select>
 {props.form?.role?.isInvalid && (
   <div className="error-message">{props.form?.role?.errorMessage}</div>

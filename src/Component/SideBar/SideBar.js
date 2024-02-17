@@ -32,21 +32,36 @@ function SideBar() {
       <div className="w-100 h-100 flex flex-col">
         <img src={logo} className="wp-200 hp-54 mb-32" />
         <div className="flex-grow-1">
+          {
+            user.role === "passenger" &&
           <Button
             type={"sideBarBtn"}
             onClick={handleButtonClick}
             value={
-              <AtomText type={"type-1"} isIcon={true} iconName={"Home"}>
+              <AtomText type={"type-1"}  isIcon={true} iconName={"home3"}>
                 {"Home"}
               </AtomText>
             }
           />
+}
+{
+   user.role === "driver" &&
+          <Button
+            type={"sideBarBtn"}
+            onClick={handleButtonClick5}
+            value={
+              <AtomText type={"type-1"}  isIcon={true} iconName={"home3"}>
+                {"Home"}
+              </AtomText>
+            }
+          />
+}
           <Button
             type={"sideBarBtn"}
             onClick={handleButtonClick2}
             value={
-              <AtomText type={"type-1"} isIcon={true} iconName={"Page2"}>
-                {"Profil"}
+              <AtomText type={"type-1"}>
+                {"Profile"}
               </AtomText>
             }
           />
@@ -56,22 +71,13 @@ function SideBar() {
               type={"sideBarBtn"}
               onClick={handleButtonClick3}
               value={
-                <AtomText type={"type-1"} isIcon={true} iconName={"Page2"}>
+                <AtomText type={"type-1"} >
                   {"Propose Route"}
                 </AtomText>
               }
+
             />
           }
-
-          <Button
-            type={"sideBarBtn"}
-            onClick={handleButtonClick5}
-            value={
-              <AtomText type={"type-1"} isIcon={true} iconName={"Page2"}>
-                {"Driver"}
-              </AtomText>
-            }
-          />
 
         </div>
         <div className="pb-20">

@@ -57,7 +57,11 @@ export default function Login() {
         })
       );
       //api
-      navigate("/test");
+      if (login.user.role === "passenger") {
+        navigate("/test");
+      } else if (login.user.role === "driver") {
+        navigate("/driver");
+      } 
     }
     else{
       setNotAuthorized("not found")

@@ -38,7 +38,7 @@ export default function Button(props) {
         >
             {props.isLoading
                 ? <Icon className="loader" iconName={"spinner9"} size={"16"} />
-                : props.value}
+                : props.value}                  
         </button>
 
     )

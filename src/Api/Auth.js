@@ -1,4 +1,4 @@
-import { apiGet, apiPost } from "./StandardApi";
+import { apiGet, apiPost, apiPut } from "./StandardApi";
 
 const registerApi = async (body) => {
     return apiPost("auth/register", body)
@@ -25,7 +25,7 @@ const profileApi = async (body) => {
 }
 
 const updateRoleApi = async (body) => {
-    return apiGet("auth/update-role", body)
+    return apiPut("auth/update-role", body)
 }
 
     

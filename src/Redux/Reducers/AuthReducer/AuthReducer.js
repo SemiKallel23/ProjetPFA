@@ -20,11 +20,14 @@ const AuthReducer = createSlice({
             state.accessToken = ""
             state.refreshToken = ""
             state.user = null
-            state.role = []
+            state.role = ""
+        },
+        setRole: (state, action) => {
+            state.user = { ...state?.user, role: action.payload.role }
         }
     }
 })
 
-export const { setToken, resetToken } = AuthReducer.actions
+export const { setToken, resetToken, setRole } = AuthReducer.actions
 
 export default AuthReducer.reducer
