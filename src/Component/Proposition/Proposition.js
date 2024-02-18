@@ -1,7 +1,6 @@
 // Proposition.js
 import React from "react";
 import CovoiturageOffer from "./CovoiturageOffer"; // Assurez-vous de mettre le chemin correct
-import { log } from "loglevel";
 import { createReservation } from "../../Api/Reservation";
 import { useSelector } from "react-redux";
 import Icon from "../Icon/Icon";
@@ -15,7 +14,6 @@ function Proposition(props) {
       idDriver: idDriver
     }
     const resp = await createReservation(body)
-    console.log("resp", resp);
   }
   return (
     <div className="position-absolute ps-16 pt-24 pe-24">

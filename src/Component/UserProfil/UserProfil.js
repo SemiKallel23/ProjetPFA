@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { updateRoleApi } from "../../Api/Auth";
 import image from "../../Style/images/avatar.png";
-import { header } from "express-validator";
 import { useDispatch } from "react-redux";
 import { setRole } from "../../Redux/Reducers/AuthReducer/AuthReducer";
 

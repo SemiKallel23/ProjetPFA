@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import NewRoute from "../../Template/NewRoute/NewRoute";
 import { trajetApi } from "../../Api/Trajet";
+import { useSelector } from "react-redux";
 
 
 export default function ProposeRoute() {
+  const user = useSelector((state) => state.auth.user)
   const initialForm = {
     startAdress: { value: "", isInvalid: false, errorMessage: "" },
     departTime: { value: "", isInvalid: false, errorMessage: "" },
@@ -38,8 +40,8 @@ export default function ProposeRoute() {
       arrivalTime: form.arrivalTime.value,
       nbrPlaces: form.nbrPlaces.value,
       car: form.car.value,
+      createdBy: user._id
     });
-    console.log(create);
 
     setPopupMessage("Successful creation !");
       setShowPopup(true);
