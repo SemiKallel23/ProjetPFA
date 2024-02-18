@@ -59,11 +59,11 @@ export default function Inscri() {
       },
       {
         value: "firstname",
-        validation: [{ error: "Enter your first name", type: "isNotEmpty" }],
+        validation: [{ error: "Enter your firstname", type: "isNotEmpty" }],
       },
       {
         value: "lastname",
-        validation: [{ error: "Enter your last name", type: "isNotEmpty" }],
+        validation: [{ error: "Enter your lastname", type: "isNotEmpty" }],
       },
       {
         value: "phoneNumber",
