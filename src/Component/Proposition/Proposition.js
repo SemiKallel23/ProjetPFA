@@ -3,7 +3,6 @@ import React from "react";
 import CovoiturageOffer from "./CovoiturageOffer"; // Assurez-vous de mettre le chemin correct
 import { createReservation } from "../../Api/Reservation";
 import { useSelector } from "react-redux";
-import Icon from "../Icon/Icon";
 
 function Proposition(props) {
   const user = useSelector((state) => state.auth.user)
@@ -16,22 +15,24 @@ function Proposition(props) {
     const resp = await createReservation(body)
   }
   return (
-    <div className="position-absolute ps-16 pt-24 pe-24">
+    <div className="position-absolute ps-16 pt-24 pe-24" style={{
+      width:400,
+    }}>
       <div className="w-100 h-100 flex flex-col">
         <div className="flex-grow-1"
           style={{
             maxHeight: 530,
             overflow: "auto"
           }}
-        >
-          <Icon color={"red"} iconName={"whatsapp"} size={"16"} />
-          <a href={`https://wa.me/${"+21688445645"}`}> WhatsApp Contact</a>
+        >      
           {
             props.paths?.map((item, index) => {
               return (
                 <CovoiturageOffer
                   key={index}
                   startAddress={item.startAdress}
+                  departTime={item.departTime}
+                  arrivalTime={item.arrivalTime}
                   endAddress={item.endAddress}
                   driverName={item.createdBy[0]?.firstname + ' ' + item.createdBy[0]?.lastname}
                   car={item.car}

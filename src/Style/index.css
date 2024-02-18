@@ -275,6 +275,15 @@ select {
     border-radius: 4px;
     cursor: pointer;
   }
+
+  .whatsapp-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
   
   .covoiturage-offer p {
     margin: 8px 0;
@@ -488,7 +497,7 @@ select {
    .class112 {
     flex: 1;
     max-height: 500px;
-  }
+}
 
    
   .reject-button {

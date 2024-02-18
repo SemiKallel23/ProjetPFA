@@ -72,7 +72,7 @@ function SideBar() {
               onClick={handleButtonClick3}
               value={
                 <AtomText type={"type-1"} isIcon={true} iconName={"target"}>
-                  {"Propose Route"}
+                  {"New Route"}
                 </AtomText>
               }
 

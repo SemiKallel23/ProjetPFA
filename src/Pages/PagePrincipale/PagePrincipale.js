@@ -28,7 +28,7 @@ function PagePrincipale(props) {
       <div ><Map /> </div>
       </div>
       <div className="class112">
-      <div ><Proposition paths={paths} /></div>
+      <div style={{ width: 200}}><Proposition paths={paths} /></div>
       </div>
     </div>
   );
