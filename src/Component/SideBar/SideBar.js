@@ -38,7 +38,7 @@ function SideBar() {
             type={"sideBarBtn"}
             onClick={handleButtonClick}
             value={
-              <AtomText type={"type-1"}  isIcon={true} iconName={"home3"}>
+              <AtomText type={"type-1"}  isIcon={true} iconName={"home"}>
                 {"Home"}
               </AtomText>
             }
@@ -50,7 +50,7 @@ function SideBar() {
             type={"sideBarBtn"}
             onClick={handleButtonClick5}
             value={
-              <AtomText type={"type-1"}  isIcon={true} iconName={"home3"}>
+              <AtomText type={"type-1"}  isIcon={true} iconName={"home"}>
                 {"Home"}
               </AtomText>
             }
@@ -60,7 +60,7 @@ function SideBar() {
             type={"sideBarBtn"}
             onClick={handleButtonClick2}
             value={
-              <AtomText type={"type-1"}>
+              <AtomText type={"type-1"} isIcon={true} iconName={"user"}>
                 {"Profile"}
               </AtomText>
             }
@@ -71,7 +71,7 @@ function SideBar() {
               type={"sideBarBtn"}
               onClick={handleButtonClick3}
               value={
-                <AtomText type={"type-1"} >
+                <AtomText type={"type-1"} isIcon={true} iconName={"target"}>
                   {"Propose Route"}
                 </AtomText>
               }
@@ -85,18 +85,23 @@ function SideBar() {
             type={"sideBarBtn"}
             onClick={handleButtonClick4}
             value={
-              <AtomText type={"type-1"} isIcon={true} iconName={"Page2"}>
+              <AtomText type={"type-1"} isIcon={true} iconName={"info"}>
                 {"About"}
               </AtomText>
             }
           />
-          <Button
-            type={"logout-btn"}
-            onClick={() => {
-              dispatch(resetToken());
-            }}
-            value={<AtomText type={"type-7"}>{"Log out"}</AtomText>}
-          />
+         <Button
+  type={"logout-btn"}
+  onClick={() => {
+    dispatch(resetToken());
+  }}
+  value={
+    <AtomText type={"type-7"} isIcon={true} iconName={"exit"} >
+      {"Log out"}
+    </AtomText>
+  }
+/>
+
         </div>
       </div>
     </div>
