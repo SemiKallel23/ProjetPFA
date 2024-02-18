@@ -40,6 +40,7 @@ function Proposition(props) {
                   createReservationApi={createReservationApi}
                   idRoute={item._id}
                   idDriver={item?.createdBy[0]?._id}
+                  phoneNumber={item.createdBy[0]?.phoneNumber}
                 />
               )
             })

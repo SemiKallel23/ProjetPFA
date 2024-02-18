@@ -26,13 +26,14 @@ export default function NewRoute(props) {
           isInvalid={form?.startAdress?.isInvalid}
         />
         <Input
-          label={"Departure Time"}
-          type={"primary"}
-          onChange={(e) => onChange(e, "departTime")}
-          value={form?.departTime?.value}
-          error={form?.departTime?.errorMessage}
-          isInvalid={form?.departTime?.isInvalid}
+        label={"Departure Time"}
+        type={"primary"} // Utilisation du type datetime-local
+        onChange={(e) => onChange(e, "departTime")}
+        value={form?.departTime?.value}
+        error={form?.departTime?.errorMessage}
+        isInvalid={form?.departTime?.isInvalid}
         />
+
         <Input
           label={"End Address"}
           type={"primary"}

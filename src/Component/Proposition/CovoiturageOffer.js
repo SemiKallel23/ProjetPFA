@@ -1,7 +1,8 @@
 import React from "react";
 import Icon from "../Icon/Icon";
 
-function CovoiturageOffer({ startAddress, 
+function CovoiturageOffer({ 
+  startAddress, 
   endAddress,
   departTime, 
   arrivalTime, 
@@ -10,7 +11,8 @@ function CovoiturageOffer({ startAddress,
   car, 
   createReservationApi, 
   idRoute, 
-  idDriver }) 
+  idDriver,
+  phoneNumber }) 
   {
   console.log('idDriver',idDriver);
   return (
@@ -24,11 +26,14 @@ function CovoiturageOffer({ startAddress,
       <p><strong>Arrival Time:</strong> {arrivalTime}</p>
       <p><strong>Car:</strong> {car}</p>
       <p><strong>Available places:</strong> {availableSeats}</p>
-      <button className="reserve-button" onClick={() => createReservationApi(idRoute, idDriver)}>Reserve</button>
-      <button className="whatsapp-button" style={{marginLeft:15}}>
-      <Icon color={"green"} iconName={"whatsapp"} size={"16"} />
-          <a href={`https://wa.me/${"+21688445645"}`}> Contact</a>
-      </button>
+      <button className="reserve-button" onClick={() => createReservationApi(idRoute, idDriver)}>
+      <Icon  iconName={"circle-right"} /> Reserve</button>
+      
+      <button className="whatsapp-button" style={{ marginLeft: 15 }}>
+  <Icon color={"green"} iconName={"whatsapp"} />
+  <a href={`https://wa.me/${"+216"+phoneNumber}`} style={{ textDecoration: 'none', color: 'white' }} target="_blank" rel="noopener noreferrer"> Contact </a>
+</button>
+
       
     </div>
   );
