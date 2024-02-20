@@ -14,6 +14,7 @@ function PagePrincipale() {
     const resp = await gettrajetApi(user?._id);
     if (resp?.status === 200) {
       setPaths(resp.trajets); 
+      console.log('aaaa',resp.trajets);
     }
   };
 
@@ -28,9 +29,10 @@ function PagePrincipale() {
 
     const filteredPaths = paths.filter((path) => {
       const pathDate = new Date(path.date);
+      console.log(path.date);
       return pathDate.toDateString() === selectedDate.toDateString(); 
     });
-
+console.log('filteredPaths', filteredPaths);
     return filteredPaths;
   };
 
@@ -39,9 +41,9 @@ function PagePrincipale() {
   };
 
   return (
-    <div style={{ width: "100%", padding: 20, display: "flex", flexFlow: "column" }}>
+    <div style={{ width: "100%", padding: 20, display: "flex"}}>
       <div className="class111">
-        <div style={{ width: "70%", padding: 20 }}><Calendar onChange={onChangeDate} /></div>
+        <div style={{ width: "70%", padding: 20 , margin:"auto" }}><Calendar onChange={onChangeDate} /></div>
         <div><Map /></div>
       </div>
       <div className="class112">
