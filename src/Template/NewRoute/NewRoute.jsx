@@ -74,7 +74,7 @@ export default function NewRoute(props) {
           }}
         >
           <Button
-            value={"Valider"}
+            value={"Validate"}
             type={"primary"}
             className={"w-15"}
             onClick={submit}

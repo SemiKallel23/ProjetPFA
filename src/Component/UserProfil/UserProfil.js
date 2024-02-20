@@ -38,8 +38,8 @@ const UserProfile = ({ user }) => {
         <p className="email">{user.email}</p>
         <p className="info">Date of birth: {user.dateOfBirth}</p>
         <p className="info">Phone number: {user.phoneNumber}</p>
-        <p className="info">Start Address: {user.startingAddress}</p>
-        <p className="info">End Address: {user.destinationAddress}</p>
+        <p className="info">Start Address: {user.startAddress}</p>
+        <p className="info">End Address: {user.endAddress}</p>
         <p className="info">Role : {editedRole}</p>
 
         {isEditing && (

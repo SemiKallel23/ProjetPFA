@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { DatePicker } from "react-rainbow-components";
 
 function Calendar({ onChange }) {
-  const [date, setDate] = useState(null);
-
+  const [date, setDate] = useState(new Date()); 
+  
   const onChangeCalendar = (newDate) => {
     setDate(newDate);
     onChange(newDate);
@@ -14,7 +14,7 @@ function Calendar({ onChange }) {
       <DatePicker
         id="datePicker-1"
         value={date}
-        onChange={onChangeCalendar} // Utiliser onChangeCalendar pour mettre à jour la date
+        onChange={onChangeCalendar}
         label="Choose a date"
         formatStyle="large"
       />

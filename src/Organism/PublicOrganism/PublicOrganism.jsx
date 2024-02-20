@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function PublicOrganism(props) {
   const renderButtonText = () => {
     let buttonText = "";
-    if (props.isLogin) buttonText = " Connexion";
+    if (props.isLogin) buttonText = "Sign in";
     if (props.isForgetPassword) buttonText = "Send Password";
     if (props.isResetPassword) buttonText = "Reset Password";
 
