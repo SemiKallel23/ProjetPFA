@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Icon from "../Icon/Icon";
 
 function CovoiturageOffer({ 
@@ -13,8 +13,22 @@ function CovoiturageOffer({
   idRoute, 
   idDriver,
   phoneNumber }) 
-  {
-  console.log('idDriver',idDriver);
+{
+  const [showPopup, setShowPopup] = useState(false);
+  const [buttonText, setButtonText] = useState("Réserver");
+  const [buttonColor, setButtonColor] = useState("");
+
+  const handleReservation = () => {
+    createReservationApi(idRoute, idDriver);
+    setButtonText("Waiting...");
+    setButtonColor("orange");
+    setShowPopup(true);
+  };
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
   return (
     <div className="covoiturage-offer">
       <div className="header">
@@ -26,15 +40,26 @@ function CovoiturageOffer({
       <p><strong>Arrival Time:</strong> {arrivalTime}</p>
       <p><strong>Car:</strong> {car}</p>
       <p><strong>Available places:</strong> {availableSeats}</p>
-      <button className="reserve-button" onClick={() => createReservationApi(idRoute, idDriver)}>
-      <Icon  iconName={"circle-right"} /> Reserve</button>
+      <button 
+        className="reserve-button" 
+        style={{ backgroundColor: buttonColor }}
+        disabled={buttonText === "Waiting..."}
+        onClick={handleReservation}
+      >
+        <Icon iconName={"circle-right"} /> {buttonText}
+      </button>
+      
+      {showPopup && (
+        <div className="popup">
+          <p>Réservation envoyée avec succès !</p>
+          <button onClick={handleClosePopup} style={{ display: 'block', margin: '0 auto' }}>Fermer</button>
+        </div>
+      )}
       
       <button className="whatsapp-button" style={{ marginLeft: 15 }}>
-  <Icon color={"green"} iconName={"whatsapp"} />
-  <a href={`https://wa.me/${"+216"+phoneNumber}`} style={{ textDecoration: 'none', color: 'white' }} target="_blank" rel="noopener noreferrer"> Contact </a>
-</button>
-
-      
+        <Icon color={"green"} iconName={"whatsapp"} />
+        <a href={`https://wa.me/${"+216"+phoneNumber}`} style={{ textDecoration: 'none', color: 'white' }} target="_blank" rel="noopener noreferrer"> Contact </a>
+      </button>
     </div>
   );
 }
