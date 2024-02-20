@@ -1,4 +1,3 @@
-// Proposition.js
 import React from "react";
 import CovoiturageOffer from "./CovoiturageOffer"; // Assurez-vous de mettre le chemin correct
 import { createReservation } from "../../Api/Reservation";
@@ -36,6 +35,7 @@ function Proposition(props) {
                   endAddress={item.endAddress}
                   driverName={item.createdBy[0]?.firstname + ' ' + item.createdBy[0]?.lastname}
                   car={item.car}
+                  date={item.date}
                   availableSeats={item.nbrPlaces}
                   createReservationApi={createReservationApi}
                   idRoute={item._id}
