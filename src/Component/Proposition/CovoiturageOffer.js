@@ -15,7 +15,7 @@ function CovoiturageOffer({
   phoneNumber }) 
 {
   const [showPopup, setShowPopup] = useState(false);
-  const [buttonText, setButtonText] = useState("Réserver");
+  const [buttonText, setButtonText] = useState("Reserve");
   const [buttonColor, setButtonColor] = useState("");
 
   const handleReservation = () => {
@@ -51,8 +51,8 @@ function CovoiturageOffer({
       
       {showPopup && (
         <div className="popup">
-          <p>Réservation envoyée avec succès !</p>
-          <button onClick={handleClosePopup} style={{ display: 'block', margin: '0 auto' }}>Fermer</button>
+          <p>Reservation sent successfully !</p>
+          <button onClick={handleClosePopup} style={{ display: 'block', margin: '0 auto' }}>Close</button>
         </div>
       )}
       

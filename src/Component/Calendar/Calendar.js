@@ -1,26 +1,23 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
 import { DatePicker } from "react-rainbow-components";
-import { useState } from "react";
 
-
-
-function Calendar() {
-  const dispatch = useDispatch();
+function Calendar({ onChange }) {
   const [date, setDate] = useState(null);
 
-  function onChange(date) {
-    setDate(date);
-  }
+  const onChangeCalendar = (newDate) => {
+    setDate(newDate);
+    onChange(newDate);
+  };
+
   return (
     <div>
       <DatePicker
-      id="datePicker-1"
-      value={date}
-      onChange={onChange}
-       label="Choose a date"
-      formatStyle="large"
-    />
+        id="datePicker-1"
+        value={date}
+        onChange={onChangeCalendar} // Utiliser onChangeCalendar pour mettre à jour la date
+        label="Choose a date"
+        formatStyle="large"
+      />
     </div>
   );
 }
