@@ -15,7 +15,7 @@ function CovoiturageOffer({
   phoneNumber }) 
 {
   const [showPopup, setShowPopup] = useState(false);
-  const [buttonText, setButtonText] = useState("Reserve");
+  const [buttonText, setButtonText] = useState("Réserver");
   const [buttonColor, setButtonColor] = useState("");
 
   const handleReservation = () => {
