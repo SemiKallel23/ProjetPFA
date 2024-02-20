@@ -10,6 +10,9 @@ import { Column } from "react-rainbow-components";
 function PagePrincipaleDriver(props) {
   const user = useSelector((state) => state.auth.user)
   const [paths, setPaths] = useState([])
+  const [selectedDate, setSelectedDate] = useState(new Date()); // Initialisez avec la date actuelle
+
+
   const getReservation = async () => {
     console.log("user?._id", user?._id);
     const resp = await getReservationAPi(user?._id)
@@ -21,14 +24,33 @@ function PagePrincipaleDriver(props) {
   useEffect(() => {
     getReservation()
   }, [])
+
+  const filterPathsByDate = () => {
+    if (!selectedDate || !paths) {
+      return paths;
+    }
+
+    const filteredPaths = paths.filter((path) => {
+      const pathDate = new Date(path.relatedToRoute[0].date);
+      return pathDate.toDateString() === selectedDate.toDateString(); 
+    });
+console.log('filteredPaths', filteredPaths);
+    return filteredPaths;
+  };
+
+  const onChangeDate = (newDate) => {
+    setSelectedDate(newDate);
+  };
+
+
   return (
-    < div style={{ width: "100%", padding: 20, display:"flex", flexFlow:Column }}>
+    < div style={{ width: "100%", padding: 20, display:"flex" }}>
       <div className="class111">
-      < div style={{ width: "70%", padding: 20 }}><Calendar /></div>
+      < div style={{ width: "70%", padding: 20 , margin:"auto"}}><Calendar onChange={onChangeDate}/></div>
       <div ><Map /> </div>
       </div>
       <div className="class112">
-      <div style ={{width : 200}} ><Demande paths={paths} /></div>
+      <div style ={{width : 200}} ><Demande paths={filterPathsByDate()} /></div>
       </div>
     </div>
   );
