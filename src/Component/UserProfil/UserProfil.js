@@ -4,6 +4,7 @@ import { updateRoleApi } from "../../Api/Auth";
 import image from "../../Style/images/avatar.png";
 import { useDispatch } from "react-redux";
 import { setRole } from "../../Redux/Reducers/AuthReducer/AuthReducer";
+import { formatDateFromNumber } from "../../Common";
 
 //import axios from 'axios';
 
@@ -36,7 +37,7 @@ const UserProfile = ({ user }) => {
       <div className="user-details">
         <h2>{user.firstname + ' ' + user.lastname}</h2>
         <p className="email">{user.email}</p>
-        <p className="info">Date of birth: {user.dateOfBirth}</p>
+        <p className="info">Date of birth: {formatDateFromNumber(user.dateOfBirth)}</p>
         <p className="info">Phone number: {user.phoneNumber}</p>
         <p className="info">Start Address: {user.startAddress}</p>
         <p className="info">End Address: {user.endAddress}</p>

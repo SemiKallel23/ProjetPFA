@@ -16,9 +16,14 @@ const deleteTrajetApi = async (body) => {
     return apiDelete("trajet/delete/:id", body)
 }
 
+const acceptTrajetApi = async (body) => {
+    return apiPost("trajet/acceptReservation", body)
+}
+
 export {
     trajetApi,
     updateTrajetApi,
     gettrajetApi,
-    deleteTrajetApi
+    deleteTrajetApi,
+    acceptTrajetApi
 }
