@@ -1,9 +1,14 @@
 import React from "react";
 import { Button, Input } from "../../Component";
 import logo from "../../Style/images/logo.png";
+import { useNavigate } from "react-router-dom";
+
+
 
 
 export default function InscriTemplate(props) {
+  const navigate = useNavigate();
+
   return (
     <div
       className="w-30"
@@ -15,10 +20,34 @@ export default function InscriTemplate(props) {
         gap: 30,
       }}
     >
+      
       <div style={{
-        marginTop : 50,
+        marginTop : 20,
       }}>
-      <img src={logo} alt="" />
+        <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "flex-end",
+          marginLeft:420,
+        }}
+      >
+        <button
+          onClick={() => {
+            navigate("/");
+          }}
+          style={{
+            backgroundColor: "transparent",
+            border: "none",
+            color: "#333",
+            fontSize: 16,
+            cursor: "pointer",
+          }}
+        >
+          Home
+        </button>
+      </div>
+      <div style={{marginLeft:50}}><img src={logo} alt="" /></div>
       </div>
       <Input
         label={"First Name"}

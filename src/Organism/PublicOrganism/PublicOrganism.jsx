@@ -2,7 +2,12 @@ import React from "react";
 import logo from "../../Style/images/logo.png";
 import { Input, Button } from "../../Component";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+
 export default function PublicOrganism(props) {
+  const navigate = useNavigate();
+
   const renderButtonText = () => {
     let buttonText = "";
     if (props.isLogin) buttonText = "Sign in";
@@ -14,8 +19,33 @@ export default function PublicOrganism(props) {
   return (
     <div className="flex justify-center h-100">
       <div className="flex flex-col justify-center" style={{ width: "400px" }}>
-        <div className="flex flex-col box-shadow1 p-30 ">
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "flex-end",
+          marginTop: -40,
+          marginLeft: 450,
+        }}
+      >
+        <button
+          onClick={() => {
+            navigate("/");
+          }}
+          style={{
+            backgroundColor: "transparent",
+            border: "none",
+            color: "#333",
+            fontSize: 16,
+            cursor: "pointer",
+          }}
+        >
+          Home
+        </button>
+      </div>
+        <div className="flex flex-col box-shadow1 p-30 " style={{marginTop:50}}>
           <div className="flex justify-center w-100 mb-30  ">
+            
             <img src={logo} alt="" />
           </div>
           {(props.isLogin || props.isForgetPassword) && (
