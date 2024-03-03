@@ -1,9 +1,11 @@
 import React from "react";
 import { Button, Input } from "../../Component";
 import logo from "../../Style/images/logo.png";
-
+import { useNavigate } from "react-router-dom";
 
 export default function InscriTemplate(props) {
+  const navigate = useNavigate();
+
   return (
     <div
       className="w-30"
@@ -15,10 +17,34 @@ export default function InscriTemplate(props) {
         gap: 30,
       }}
     >
+      
       <div style={{
-        marginTop : 50,
+        marginTop : 20,
       }}>
-      <img src={logo} alt="" />
+        <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "flex-end",
+          marginLeft:420,
+        }}
+      >
+        <button
+          onClick={() => {
+            navigate("/");
+          }}
+          style={{
+            backgroundColor: "transparent",
+            border: "none",
+            color: "#333",
+            fontSize: 16,
+            cursor: "pointer",
+          }}
+        >
+          Home
+        </button>
+      </div>
+      <div style={{marginLeft:50}}><img src={logo} alt="" /></div>
       </div>
       <Input
         label={"First Name"}
@@ -105,13 +131,12 @@ export default function InscriTemplate(props) {
   value={props.form?.role?.value}
   className={`input-primary ${props.form?.role?.isInvalid ? "invalid" : ""}`}
 >
-  <option value="" disabled > Choose A Role</option>
+  <option value="" disabled > Choose a role</option>
   <option value="driver">Driver</option>
   <option value="passenger">Passenger</option>
 </select>
 {props.form?.role?.isInvalid && (
-  <div className="error-message">
-    {props.form?.role?.errorMessage}</div>
+  <div className="error-message">{props.form?.role?.errorMessage}</div>
 )}
 
 
@@ -133,3 +158,4 @@ export default function InscriTemplate(props) {
     </div>
   );
 }
+
