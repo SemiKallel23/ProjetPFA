@@ -105,12 +105,13 @@ export default function InscriTemplate(props) {
   value={props.form?.role?.value}
   className={`input-primary ${props.form?.role?.isInvalid ? "invalid" : ""}`}
 >
-  <option value="" disabled > Choose a role</option>
+  <option value="" disabled > Choose A Role</option>
   <option value="driver">Driver</option>
   <option value="passenger">Passenger</option>
 </select>
 {props.form?.role?.isInvalid && (
-  <div className="error-message">{props.form?.role?.errorMessage}</div>
+  <div className="error-message">
+    {props.form?.role?.errorMessage}</div>
 )}
 
 
