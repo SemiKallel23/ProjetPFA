@@ -1,5 +1,5 @@
 import React from "react";
-import CovoiturageOffer from "./CovoiturageOffer"; // Assurez-vous de mettre le chemin correct
+import CovoiturageOffer from "./CovoiturageOffer"; 
 import { createReservation } from "../../Api/Reservation";
 import { useSelector } from "react-redux";
 
@@ -14,17 +14,8 @@ function Proposition(props) {
     const resp = await createReservation(body)
   }
   return (
-    <div className="position-absolute ps-16 pt-24 pe-24" style={{
-      width:400,
-    }}>
-      <div className="w-100 h-100 flex flex-col">
-        <div className="flex-grow-1"
-          style={{
-            maxHeight: 530,
-            overflow: "auto"
-          }}
-        >      
-          {
+    <div className="position-absolute ps-16 pt-24 pe-24" style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap : 10 , justifyContent: 'center', alignItems: 'center' }}>
+  {
             props.paths?.map((item, index) => {
               return (
                 <CovoiturageOffer
@@ -48,8 +39,6 @@ function Proposition(props) {
           }
 
         </div>
-      </div>
-    </div>
   );
 }
 
