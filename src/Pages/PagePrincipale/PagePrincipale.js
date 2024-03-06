@@ -8,7 +8,7 @@ import Proposition from "../../Component/Proposition/Proposition";
 function PagePrincipale() {
   const user = useSelector((state) => state.auth.user);
   const [paths, setPaths] = useState([]);
-  const [selectedDate, setSelectedDate] = useState(new Date()); // Initialisez avec la date actuelle
+  const [selectedDate, setSelectedDate] = useState(new Date()); 
 
   const getTrajet = async () => {
     const resp = await gettrajetApi(user?._id);

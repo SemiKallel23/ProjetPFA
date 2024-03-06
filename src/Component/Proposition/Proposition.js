@@ -35,6 +35,7 @@ function Proposition(props) {
                   endAddress={item.endAddress}
                   driverName={item.createdBy[0]?.firstname + ' ' + item.createdBy[0]?.lastname}
                   car={item.car}
+                  matricule={item.matricule}
                   date={item.date}
                   availableSeats={item.nbrPlaces}
                   createReservationApi={createReservationApi}

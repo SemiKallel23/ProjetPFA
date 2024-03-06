@@ -9,6 +9,7 @@ function CovoiturageOffer({
   driverName, 
   availableSeats, 
   car, 
+  matricule,
   createReservationApi, 
   idRoute, 
   idDriver,
@@ -39,6 +40,7 @@ function CovoiturageOffer({
       <p><strong>End Address:</strong> {endAddress}</p>
       <p><strong>Arrival Time:</strong> {arrivalTime}</p>
       <p><strong>Car:</strong> {car}</p>
+      <p><strong>Registration number:</strong> {matricule}</p>
       <p><strong>Available places:</strong> {availableSeats}</p>
       <button 
         className="reserve-button" 

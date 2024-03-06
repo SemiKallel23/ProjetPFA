@@ -20,10 +20,15 @@ const acceptTrajetApi = async (body) => {
     return apiPost("trajet/acceptReservation", body)
 }
 
+const rejectTrajetApi = async (body) => {
+    return apiPost("trajet/rejectReservation", body)
+}
+
 export {
     trajetApi,
     updateTrajetApi,
     gettrajetApi,
     deleteTrajetApi,
-    acceptTrajetApi
+    acceptTrajetApi,
+    rejectTrajetApi
 }

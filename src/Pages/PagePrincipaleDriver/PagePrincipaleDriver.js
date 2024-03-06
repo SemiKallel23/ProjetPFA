@@ -4,15 +4,14 @@ import { getReservationAPi } from "../../Api/Reservation";
 import Calendar from "../../Component/Calendar/Calendar";
 import Map from "../../Component/Map/Map";
 import Demande from "../../Component/Demande/Demande"
-import { Column } from "react-rainbow-components";
-import { acceptTrajetApi } from "../../Api/Trajet";
+import { acceptTrajetApi , rejectTrajetApi } from "../../Api/Trajet";
 
 
 function PagePrincipaleDriver(props) {
   const user = useSelector((state) => state.auth.user)
   const [paths, setPaths] = useState([])
   const [isLoading, setIsLoading] = useState(false)
-  const [selectedDate, setSelectedDate] = useState(new Date()); // Initialisez avec la date actuelle
+  const [selectedDate, setSelectedDate] = useState(new Date()); 
   const acceptReservation = async (reservationId, trajetId, passengerId) => {
     setIsLoading(true)
     const body = {
@@ -21,6 +20,17 @@ function PagePrincipaleDriver(props) {
       passengerId
     }
     await acceptTrajetApi(body)
+    setIsLoading(false)
+    getReservation()
+  }
+
+  const rejectReservation = async (reservationId, trajetId) => {
+    setIsLoading(true)
+    const body = {
+      trajetId,
+      reservationId
+    }
+    await rejectTrajetApi(body)
     setIsLoading(false)
     getReservation()
   }
@@ -62,7 +72,7 @@ function PagePrincipaleDriver(props) {
         <div ><Map /> </div>
       </div>
       <div className="class112">
-        <div style={{ width: 200 }} ><Demande paths={filterPathsByDate()} acceptReservation={acceptReservation} isLoading={isLoading}/></div>
+        <div style={{ width: 200 }} ><Demande paths={filterPathsByDate()} acceptReservation={acceptReservation} rejectReservation={rejectReservation} isLoading={isLoading}/></div>
       </div>
     </div>
   );

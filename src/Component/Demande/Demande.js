@@ -16,6 +16,7 @@ function Demande(props) {
             props.paths?.map((item, index) => {
               return (
                 <CovoiturageDemande
+                key={item._id}
                   passengerName={item.createdBy[0]?.firstname + ' ' + item.createdBy[0]?.lastname}
                   startAddress={item.relatedToRoute[0]?.startAdress}
                   departTime={item.relatedToRoute[0]?.departTime}
@@ -24,6 +25,7 @@ function Demande(props) {
                   phoneNumber={item.createdBy[0]?.phoneNumber}
                   date={item.relatedToRoute[0]?.date}
                   acceptReservation={props.acceptReservation}
+                  rejectReservation={props.rejectReservation}
                   reservationId={item._id}
                   trajetId={item.relatedToRoute[0]._id}
                   createdBy={item.createdBy[0]?._id}

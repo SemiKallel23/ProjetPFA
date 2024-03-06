@@ -13,6 +13,7 @@ export default function ProposeRoute() {
     arrivalTime: { value: "", isInvalid: false, errorMessage: "" },
     nbrPlaces: { value: "", isInvalid: false, errorMessage: "" },
     car: { value: "", isInvalid: false, errorMessage: "" },
+    matricule: { value: "", isInvalid: false, errorMessage: "" },
     date: { value: "", isInvalid: false, errorMessage: "" },
   };
 
@@ -54,6 +55,7 @@ export default function ProposeRoute() {
       arrivalTime: form.arrivalTime.value,
       nbrPlaces: form.nbrPlaces.value,
       car: form.car.value,
+      matricule: form.matricule.value,
       date: form.date.value,
       createdBy: user._id
     });

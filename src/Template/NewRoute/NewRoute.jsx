@@ -66,6 +66,14 @@ export default function NewRoute(props) {
           error={form?.car?.errorMessage}
           isInvalid={form?.car?.isInvalid}
         />
+        <Input
+          label={"Registration number"}
+          type={"primary"}
+          onChange={(e) => onChange(e, "matricule")}
+          value={form?.matricule?.value}
+          error={form?.matricule?.errorMessage}
+          isInvalid={form?.matricule?.isInvalid}
+        />
         <div
           style={{
             width: "100%",

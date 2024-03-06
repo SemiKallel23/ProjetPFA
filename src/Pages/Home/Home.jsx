@@ -18,8 +18,8 @@ function Home() {
       flexDirection: "column",
     }}>
       <div style={{
-        marginTop : 20,
-        marginBottom : 20,
+         marginTop : 20,
+        // marginBottom : 20,
       }}>
       <img src={logo} alt="" />
       </div>
@@ -28,13 +28,13 @@ function Home() {
       </div>
     <div className="w-25"
     style={{
-      marginTop : 30 ,
+      // marginTop : 30 ,
       display : 'flex' ,
       justifyContent : "center" ,
       alignItems : "center" ,
       flexDirection: "column",
-      gap : 20 ,
-      marginBottom : 50,
+      // gap : 20 ,
+      // marginBottom : 50,
           }}>
       <Button
         value={"Login"}
