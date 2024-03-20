@@ -1,32 +1,26 @@
-FROM node:18-alpine as builder
+# Utiliser l'image node:alpine comme base
+FROM node:alpine
 
+# Définir le répertoire de travail dans le conteneur
 WORKDIR /app
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
+# Copier les fichiers package.json et package-lock.json
+COPY package*.json ./
 
-COPY package.json ./
-COPY package-lock.json ./
+RUN npm install -g npm@latest
 
-RUN npm i -g @nestjs/cli
+# Installer les dépendances
 
-RUN npm install
+RUN npm install --legacy-peer-deps
 
-COPY . ./
+# Copier le reste des fichiers
+COPY . .
 
-ARG BK_URL
-
-ENV REACT_APP_BK_URL=$BK_URL
-
+# Construire l'application
 RUN npm run build
 
+# Exposer le port 3000
+EXPOSE 3000
 
-FROM nginx:1.23.1-alpine
-
-WORKDIR /usr/share/nginx/html
-
-COPY --from=builder /app/dist /usr/share/nginx/html
-
-COPY docker/nginx/prod/nginx.conf /etc/nginx/conf.d/default.conf
-
-CMD ["nginx", "-g", "daemon off;"]
+# Commande pour démarrer l'application
+CMD ["npm", "start"]

@@ -1,14 +1,14 @@
-version: '3.3'
+version: '3.8'
+
 services:
-  react-dev:
-    build:
-      context: ./
-      dockerfile: Dockerfile.local
+  frontend:
+    image: semi22/covoiturage:latest
     ports:
-      - "3010:3000"
-    image: img-dollycar-local
-    container_name: container-dollycar-local
-    volumes:
-      - .:/app
-    stdin_open: true
-    restart: unless-stopped
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  backend:
+    image: backend:latest
+    ports:
+      - "4000:4000"
