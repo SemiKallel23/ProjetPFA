@@ -1,5 +1,5 @@
 # Utiliser l'image node:alpine comme base
-FROM node:alpine
+FROM node:20
 
 # Définir le répertoire de travail dans le conteneur
 WORKDIR /app
@@ -11,7 +11,7 @@ RUN npm install -g npm@latest
 
 # Installer les dépendances
 
-RUN npm install --force
+RUN npm install 
 
 # Copier le reste des fichiers
 COPY . .
