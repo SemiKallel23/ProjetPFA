@@ -11,7 +11,7 @@ RUN npm install -g npm@latest
 
 # Installer les dépendances
 
-RUN npm install 
+RUN npm install --network-timeout=300000
 
 # Copier le reste des fichiers
 COPY . .
