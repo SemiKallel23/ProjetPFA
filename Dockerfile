@@ -11,7 +11,7 @@ RUN npm install -g npm@latest
 
 # Installer les dépendances
 
-RUN npm install --network-timeout=300000
+RUN npm install --network-timeout=300000 --legacy-peer-deps
 
 # Copier le reste des fichiers
 COPY . .
