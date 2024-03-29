@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   frontend:
-    image: frontend:latest
+    image: semi22/frontend:latest
     ports:
       - "3000:3000"
     depends_on:
